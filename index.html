@@ -1,117 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Regla 3 Simples</title>
+  <title>Regla de Tres Simples | Premium Calculator</title>
   <link rel="shortcut icon" href="./img/icons8-calculadora.svg" type="image/x-icon">
   <link rel="stylesheet" href="./css/main.css">
-
+  <!-- Tailwind for layout utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
-  <header class="headtext">
-    <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span
-        class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Calculadora Reglas 3
-        Simples</span></h1>
-
+<body class="flex flex-col min-h-screen">
+  <header class="py-8 px-4 text-center animate-in">
+    <div class="inline-flex items-center gap-2 mb-2 p-2 px-4 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium">
+       <i data-lucide="zap" class="w-4 h-4"></i>
+      Regla de Tres Simples
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-rose-400">
+        Calculadora Inteligente
+      </span>
+    </h1>
+    <p class="text-gray-400 max-w-lg mx-auto text-sm md:text-base">
+      Calcula proporciones de manera instantánea con una interfaz profesional.
+    </p>
   </header>
 
-
-  <div id="alert-additional-content-1"
-    class="p-4 mb-4 text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
-    role="alert">
-    <div class="flex items-center">
-      <svg class="flex-shrink-0 w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-        viewBox="0 0 20 20">
-        <path
-          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-      </svg>
-      <span class="sr-only">Info</span>
-      <h3 class="text-lg font-medium">Regla de tres simples directa: </h3>
-    </div>
-    <div class="mt-2 mb-4 text-sm">
-      La regla de tres simple directa se utiliza cuando el problema trata de dos magnitudes directamente proporcionales.
-      Podemos decir que dos magnitudes son directamente proporcionales cuando al multiplicar o dividir una de ellas por
-      un número, la otra queda multiplicada o dividida respectivamente por el mismo número.
-    </div>
-    <div class="flex">
-      <button type="button" id="showmore"
-        class="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        <svg class="-ml-0.5 mr-2 h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-          viewBox="0 0 20 14">
-          <path
-            d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-        </svg>
-       Ejemplo (Ej)
-      </button>
+  <main class="flex-grow container mx-auto max-w-2xl px-4 py-4 md:py-8 animate-in" style="animation-delay: 0.1s;">
 
 
-    </div>
-
-
-    <form>
-
-      <div class="grid gap-6 mb-6 md:grid-cols-2">
-        <div>
-          <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero a
-            Dividir</label>
-          <input type="number" id="v1"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="magnitud A: Ej ('KILOS')" required>
-        </div>
-
-        <div>
-          <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero a
-            multiplicar </label>
-          <input type="number" id="v2"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="magnitud B: Ej ('PRECIO')" required>
-        </div>
-
-        <div>
-          <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero a multiplicar
-            </label>
-          <input type="number" id="v3"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="magnitud A: Ej ('KILOS')" required>
-        </div>
-
-        <hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-        <button type="button" id="btn"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Resolver</button>
+    <!-- Main Card -->
+    <div class="glass-card p-6 md:p-10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-4 opacity-10">
+        <i data-lucide="calculator" class="w-24 h-24"></i>
       </div>
-    </form>
-  </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <label class="block text-xs font-semibold text-indigo-400 uppercase tracking-wider">Si un valor A</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">V1</span>
+              <input type="number" id="v1" class="input-glass w-full pl-8 pr-4 py-3 rounded-xl text-lg" placeholder="10">
+            </div>
+          </div>
 
+          <div class="space-y-2">
+            <label class="block text-xs font-semibold text-violet-400 uppercase tracking-wider">Produce un valor B</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">V2</span>
+              <input type="number" id="v2" class="input-glass w-full pl-8 pr-4 py-3 rounded-xl text-lg" placeholder="20">
+            </div>
+          </div>
 
-  <footer class="bg-white dark:bg-gray-900">
-    <div class="mx-auto w-full max-w-screen-xl">
-      <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-   
-    </div>
-    <div class="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/">EmilianoCampos™</a>. All Rights Reserved.
-        </span>
-        <div class="flex mt-4 space-x-5 sm:justify-center md:mt-0">
-       <a href="https://www.linkedin.com/in/emiliano-campos-campazzo-b06b8126b/">     <img src="./img/icons8-linkedin.svg" alt="linkedin"></a>
-        <a href="https://github.com/emilianocampos">   <img src="./img/icons8-github-48.png" alt="github"></a>
-        
+          <div class="space-y-2 pt-4">
+            <label class="block text-xs font-semibold text-rose-400 uppercase tracking-wider">Entonces un valor C</label>
+            <div class="relative">
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-xs">V3</span>
+              <input type="number" id="v3" class="input-glass w-full pl-8 pr-4 py-3 rounded-xl text-lg" placeholder="5">
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="flex flex-col items-center justify-center bg-white/5 rounded-2xl p-8 border border-white/5 space-y-4">
+          <div class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Resultado Final</div>
+          <div id="result-display" class="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400">
+            0
+          </div>
+
         </div>
       </div>
+
+      <div class="mt-10 flex flex-col md:flex-row gap-4 items-center">
+        <button id="showmore" class="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors text-sm font-medium">
+          <i data-lucide="help-circle" class="w-4 h-4"></i>
+          ¿Cómo funciona?
+        </button>
+        <button id="clear-btn" class="ml-auto text-gray-500 hover:text-white transition-colors text-sm">
+          Limpiar campos
+        </button>
+      </div>
     </div>
-</footer>
+  </main>
 
+  <footer class="py-6 px-4 mt-12">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-rose-500 flex items-center justify-center font-bold text-lg">E</div>
+        <p class="text-sm font-medium text-gray-400">© 2023 EmilianoCampos</p>
+      </div>
+      
+      <div class="flex items-center gap-6">
+        <a href="https://www.linkedin.com/in/emiliano-campos-campazzo-b06b8126b/" target="_blank" class="text-gray-500 hover:text-indigo-400 transition-colors">
+          <i data-lucide="linkedin" class="w-5 h-5"></i>
+        </a>
+        <a href="https://github.com/emilianocampos" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/main.js"></script>
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>
